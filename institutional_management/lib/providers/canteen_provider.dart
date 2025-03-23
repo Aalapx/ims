@@ -78,7 +78,7 @@ class CanteenProvider extends ChangeNotifier {
           price: 5.99,
           category: 'Fast Food',
           imageUrl:
-              'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg',
         ),
         FoodItem(
           id: '2',
@@ -87,7 +87,7 @@ class CanteenProvider extends ChangeNotifier {
           price: 7.99,
           category: 'Pizza',
           imageUrl:
-              'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1146760/pexels-photo-1146760.jpeg',
         ),
         FoodItem(
           id: '3',
@@ -96,7 +96,7 @@ class CanteenProvider extends ChangeNotifier {
           price: 4.99,
           category: 'Salads',
           imageUrl:
-              'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1059905/pexels-photo-1059905.jpeg',
         ),
         FoodItem(
           id: '4',
@@ -105,7 +105,7 @@ class CanteenProvider extends ChangeNotifier {
           price: 2.99,
           category: 'Sides',
           imageUrl:
-              'https://images.unsplash.com/photo-1576107232684-1279f390418a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg',
         ),
         FoodItem(
           id: '5',
@@ -114,7 +114,7 @@ class CanteenProvider extends ChangeNotifier {
           price: 3.99,
           category: 'Beverages',
           imageUrl:
-              'https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg',
         ),
         FoodItem(
           id: '6',
@@ -123,7 +123,7 @@ class CanteenProvider extends ChangeNotifier {
           price: 8.99,
           category: 'Italian',
           imageUrl:
-              'https://images.unsplash.com/photo-1612874742237-6526221588e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg',
         ),
       ];
 

@@ -39,7 +39,7 @@ class EventProvider extends ChangeNotifier {
           location: 'Main Auditorium',
           isLive: false,
           imageUrl:
-              'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg',
         ),
         Event(
           id: '2',
@@ -51,7 +51,7 @@ class EventProvider extends ChangeNotifier {
           location: 'Campus Grounds',
           isLive: false,
           imageUrl:
-              'https://images.unsplash.com/photo-1560523159-4a9692d222f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg',
         ),
         Event(
           id: '3',
@@ -63,7 +63,7 @@ class EventProvider extends ChangeNotifier {
           location: 'Virtual - Zoom',
           isLive: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg',
         ),
         Event(
           id: '4',
@@ -75,7 +75,7 @@ class EventProvider extends ChangeNotifier {
           location: 'Library Courtyard',
           isLive: false,
           imageUrl:
-              'https://images.unsplash.com/photo-1548048026-5a1a941d8c18?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg',
         ),
         Event(
           id: '5',
@@ -87,7 +87,7 @@ class EventProvider extends ChangeNotifier {
           location: 'Science Building',
           isLive: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/1181371/pexels-photo-1181371.jpeg',
         ),
       ];
 

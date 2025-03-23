@@ -49,8 +49,7 @@ class _LoginPageState extends State<LoginPage>
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-                ),
+                  'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80'),
                 fit: BoxFit.cover,
               ),
             ),

@@ -24,7 +24,7 @@ class ApiService {
 
   Future<T> get<T>(
     String endpoint,
-    T Function(Map<String, dynamic>) fromJson,
+    T Function(dynamic) fromJson,
   ) async {
     try {
       final url = Uri.parse('$baseUrl$endpoint');
@@ -37,7 +37,8 @@ class ApiService {
       print('Response body: ${response.body}');
 
       if (response.statusCode == 200) {
-        return fromJson(json.decode(response.body));
+        final decoded = json.decode(response.body);
+        return fromJson(decoded);
       } else {
         throw ApiException(
           statusCode: response.statusCode,

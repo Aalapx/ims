@@ -6,28 +6,77 @@ class HallCard extends StatelessWidget {
   final VoidCallback onSelected;
 
   const HallCard({Key? key, required this.hall, required this.onSelected})
-    : super(key: key);
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: ListTile(
-        title: Text(hall.name, style: TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Capacity: ${hall.capacity}'),
-            Text(
-              'Available Slots: ${hall.availableSlots.where((slot) => slot.isAvailable).length}',
-              style: TextStyle(color: Colors.green),
+      child: Column(
+        children: [
+          if (hall.imageUrl.isNotEmpty)
+            Image.network(
+              hall.imageUrl,
+              height: 150,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
-          ],
-        ),
-        trailing: ElevatedButton(
-          onPressed: onSelected,
-          child: Text('Book Now'),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  hall.name,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                SizedBox(height: 8),
+                Text(hall.description),
+                SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Capacity: ${hall.capacity} people',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Price: \$${hall.pricePerHour}/hour',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: hall.isAvailable ? onSelected : null,
+                      child: Text(
+                        hall.isAvailable ? 'Book Now' : 'Not Available',
+                      ),
+                    ),
+                  ],
+                ),
+                if (hall.amenities.isNotEmpty) ...[
+                  SizedBox(height: 8),
+                  Text(
+                    'Amenities:',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Wrap(
+                    spacing: 8,
+                    children: hall.amenities
+                        .map((amenity) => Chip(label: Text(amenity)))
+                        .toList(),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

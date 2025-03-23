@@ -1,26 +1,48 @@
 class Hall {
   final int id;
   final String name;
-  final String capacity;
-  final List<TimeSlot> availableSlots;
+  final String description;
+  final int capacity;
+  final double pricePerHour;
+  final List<String> amenities;
+  final String imageUrl;
+  final bool isAvailable;
 
   Hall({
     required this.id,
     required this.name,
+    required this.description,
     required this.capacity,
-    required this.availableSlots,
+    required this.pricePerHour,
+    this.amenities = const [],
+    required this.imageUrl,
+    required this.isAvailable,
   });
 
   factory Hall.fromJson(Map<String, dynamic> json) {
     return Hall(
-      id: json['id'],
-      name: json['name'],
-      capacity: json['capacity'],
-      availableSlots:
-          (json['availableSlots'] as List)
-              .map((slot) => TimeSlot.fromJson(slot))
-              .toList(),
+      id: json['id'] as int,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      capacity: json['capacity'] as int,
+      pricePerHour: (json['pricePerHour'] as num).toDouble(),
+      amenities: (json['amenities'] as List<dynamic>?)?.cast<String>() ?? [],
+      imageUrl: json['imageUrl'] as String? ?? '',
+      isAvailable: json['available'] as bool,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'description': description,
+      'capacity': capacity,
+      'pricePerHour': pricePerHour,
+      'amenities': amenities,
+      'imageUrl': imageUrl,
+      'available': isAvailable,
+    };
   }
 }
 

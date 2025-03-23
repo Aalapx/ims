@@ -51,7 +51,7 @@ class _CanteenPageState extends State<CanteenPage> {
                     fit: StackFit.expand,
                     children: [
                       Image.network(
-                        'https://images.unsplash.com/photo-1559305616-3f99cd43e353?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+                        'https://images.unsplash.com/photo-1559305616-3f99cd43e353?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80',
                         fit: BoxFit.cover,
                       ),
                       Container(

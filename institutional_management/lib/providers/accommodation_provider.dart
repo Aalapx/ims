@@ -32,7 +32,7 @@ class AccommodationProvider extends ChangeNotifier {
           price: 45.0,
           isAvailable: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg',
         ),
         Accommodation(
           id: 2,
@@ -41,7 +41,7 @@ class AccommodationProvider extends ChangeNotifier {
           price: 65.0,
           isAvailable: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg',
         ),
         Accommodation(
           id: 3,
@@ -50,7 +50,7 @@ class AccommodationProvider extends ChangeNotifier {
           price: 90.0,
           isAvailable: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1590490359683-658d3d23f972?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/271619/pexels-photo-271619.jpeg',
         ),
         Accommodation(
           id: 4,
@@ -59,7 +59,7 @@ class AccommodationProvider extends ChangeNotifier {
           price: 30.0,
           isAvailable: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg',
         ),
         Accommodation(
           id: 5,
@@ -68,7 +68,7 @@ class AccommodationProvider extends ChangeNotifier {
           price: 75.0,
           isAvailable: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg',
         ),
         Accommodation(
           id: 6,
@@ -77,7 +77,7 @@ class AccommodationProvider extends ChangeNotifier {
           price: 85.0,
           isAvailable: true,
           imageUrl:
-              'https://images.unsplash.com/photo-1551632436-cbf726cbfb8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+              'https://images.pexels.com/photos/271619/pexels-photo-271619.jpeg',
         ),
       ];
 
