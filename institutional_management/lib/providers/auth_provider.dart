@@ -55,6 +55,45 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
+  Future<bool> register(String name, String email, String password, String confirmPassword) async {
+    try {
+      _isLoading = true;
+      _error = null;
+      notifyListeners();
+
+      final response = await _apiService.post(
+        ApiConfig.register,
+        {
+          'name': name,
+          'email': email,
+          'password': password,
+          'confirmPassword': confirmPassword,
+        },
+        (json) {
+          final token = json['token'] as String;
+          _apiService.setAuthToken(token);
+          return User(
+            id: json['id'] is String ? int.parse(json['id']) : json['id'],
+            name: json['name'],
+            email: json['email'],
+            role: json['role'],
+            token: token,
+          );
+        },
+      );
+
+      _currentUser = response;
+      _isLoading = false;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _error = 'Failed to register: ${e.toString()}';
+      _isLoading = false;
+      notifyListeners();
+      return false;
+    }
+  }
+
   Future<void> logout() async {
     _apiService.setAuthToken(''); // Clear the token
     _currentUser = null;

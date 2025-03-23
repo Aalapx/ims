@@ -3,6 +3,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
 import '../pages/main_navigation_page.dart';
 import '../providers/auth_provider.dart';
+import '../pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -301,7 +302,12 @@ class _LoginPageState extends State<LoginPage>
                                     Text("Don't have an account?"),
                                     TextButton(
                                       onPressed: () {
-                                        // Navigate to register page
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => RegisterPage(),
+                                          ),
+                                        );
                                       },
                                       child: Text(
                                         'Register',

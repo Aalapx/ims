@@ -262,9 +262,39 @@ class ProfilePage extends StatelessWidget {
           backgroundColor: Colors.red.shade400,
           foregroundColor: Colors.white,
         ),
-        onPressed: () {
-          authProvider.logout();
-          Navigator.pushReplacementNamed(context, '/login');
+        onPressed: () async {
+          // Show confirmation dialog
+          final bool? confirm = await showDialog<bool>(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Confirm Logout'),
+                content: Text('Are you sure you want to logout?'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text('Cancel'),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(true),
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                ],
+              );
+            },
+          );
+
+          if (confirm == true) {
+            await authProvider.logout();
+            if (!context.mounted) return;
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              '/login',
+              (Route<dynamic> route) => false,
+            );
+          }
         },
       ),
     );

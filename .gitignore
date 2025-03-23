@@ -1,0 +1,4 @@
+# Database files
+*.mv.db
+*.trace.db
+data/ 

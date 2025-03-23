@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'pages/login_page.dart';
+import 'pages/register_page.dart';
 import 'providers/auth_provider.dart';
 import 'providers/hall_provider.dart';
 import 'providers/accommodation_provider.dart';
@@ -47,7 +48,12 @@ class MyApp extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         ),
       ),
-      home: MainNavigationPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainNavigationPage(),
+        '/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(),
+      },
     );
   }
 }

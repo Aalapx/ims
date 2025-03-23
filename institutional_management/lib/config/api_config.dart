@@ -1,7 +1,24 @@
+import 'package:flutter/foundation.dart';
+import 'dart:io' show Platform;
+
 class ApiConfig {
-  // Use 10.0.2.2 which is the special IP address to reach the host from Android emulator
-  // If using a physical device, you'll need to use your computer's actual IP address on your network
-  static const String baseUrl = 'http://10.0.2.2:8090/api';
+  // Use appropriate base URL depending on platform
+  static String get baseUrl {
+    // Use localhost for web and desktop platforms
+    if (kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isLinux) {
+      return 'http://127.0.0.1:8090/api';
+    }
+    // Use 10.0.2.2 for Android emulator
+    if (Platform.isAndroid) {
+      return 'http://10.0.2.2:8090/api';
+    }
+    // Use localhost for iOS simulator
+    if (Platform.isIOS) {
+      return 'http://localhost:8090/api';
+    }
+    // Default to localhost
+    return 'http://127.0.0.1:8090/api';
+  }
 
   // Auth endpoints
   static const String login = '/auth/login';

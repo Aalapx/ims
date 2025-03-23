@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.example.institutional_management.config.JwtUtil;
 import com.example.institutional_management.model.AuthRequest;
 import com.example.institutional_management.model.AuthResponse;
+import com.example.institutional_management.model.RegisterRequest;
 import com.example.institutional_management.model.User;
 import com.example.institutional_management.repository.UserRepository;
 
@@ -44,13 +45,15 @@ public class AuthServiceImpl implements AuthService {
                 user = optionalUser.get();
                 logger.debug("Test user found in database: {}", user);
             } else {
-                // Create a dummy user for testing if not in DB
+                // Create a test user only if it doesn't exist
                 user = new User();
                 user.setId(1L);
                 user.setName("Test User");
                 user.setEmail("test@example.com");
+                user.setPassword(passwordEncoder.encode("password")); // Hash the password
                 user.setRole("ADMIN");
-                logger.debug("Created dummy test user: {}", user);
+                user = userRepository.save(user); // Save the user to database
+                logger.debug("Created and saved test user: {}", user);
             }
             
             String token = jwtUtil.generateToken(user.getEmail());
@@ -86,6 +89,44 @@ public class AuthServiceImpl implements AuthService {
                 user.getEmail(),
                 user.getRole(),
                 token
+        );
+    }
+
+    @Override
+    public AuthResponse register(RegisterRequest request) {
+        logger.debug("Attempting registration for email: {}", request.getEmail());
+
+        // Validate if passwords match
+        if (!request.getPassword().equals(request.getConfirmPassword())) {
+            throw new RuntimeException("Passwords do not match");
+        }
+
+        // Check if user already exists
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new RuntimeException("User already exists with email: " + request.getEmail());
+        }
+
+        // Create new user
+        User user = new User();
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole("USER"); // Default role
+
+        // Save user
+        user = userRepository.save(user);
+        logger.debug("User registered successfully: {}", user.getEmail());
+
+        // Generate token
+        String token = jwtUtil.generateToken(user.getEmail());
+
+        // Return auth response
+        return new AuthResponse(
+            user.getId(),
+            user.getName(),
+            user.getEmail(),
+            user.getRole(),
+            token
         );
     }
 } 
